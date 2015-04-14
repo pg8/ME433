@@ -1,6 +1,7 @@
 #include<xc.h> // processor SFR definitions
 #include<sys/attribs.h> // __ISR macro
 #include "i2c_display.h"
+#include "i2c_master_int.h"
 
 // DEVCFGs here
 
@@ -42,7 +43,7 @@
 // ASCII
 
 // lookup table for all of the ascii characters
-static const int ASCII[96][5] = {
+static const char ASCII[96][5] = {
  {0x00, 0x00, 0x00, 0x00, 0x00} // 20  (space)
 ,{0x00, 0x00, 0x5f, 0x00, 0x00} // 21 !
 ,{0x00, 0x07, 0x00, 0x07, 0x00} // 22 "
@@ -194,7 +195,32 @@ RPB7Rbits.RPB7R = 0b0101; // set B15 to OC1
 
 
     /////// Write to LCD
-    
+    display_init();
+
+    int k=0;
+    int L=0;
+    int charCurrent;
+    int xIndex = 28;
+    int yIndex = 32;
+    char message[30];
+    sprintf(message,"Hello world 1337!");
+    while(L==0){
+        charCurrent = (int)message[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, yIndex);
+            xIndex+=5;
+            k+=1;
+        }
+    }
+
+    display_draw();
+
+
+
+
 
 
 
@@ -294,7 +320,7 @@ void drawChar(int tableIndex, int xPos, int yPos){
         number = ASCII[tableIndex][i];
         for(j=0;j<=7;j++){
             //if((((int)number)&(1<<j))>>j){
-            if((number>>j)&1==1){
+            if(((int)number>>j)&1==1){
                 display_pixel_set(yPos+j,xPos+i,1);
             }
             else{
@@ -304,6 +330,3 @@ void drawChar(int tableIndex, int xPos, int yPos){
     }
 }
 
-void writeString(){
-
-}
