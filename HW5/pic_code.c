@@ -2,6 +2,7 @@
 #include<sys/attribs.h> // __ISR macro
 #include "i2c_display.h"
 #include "i2c_master_int.h"
+#include "accel.h"
 
 // DEVCFGs here
 
