@@ -199,22 +199,128 @@ RPB7Rbits.RPB7R = 0b0101; // set B15 to OC1
     int k=0;
     int L=0;
     int charCurrent;
-    int xIndex = 28;
-    int yIndex = 32;
-    char message[50];
-    sprintf(message,"Hello world 1337!");
+    int x1=0;
+    int xIndex = 0;
+    int yIndex = 1;
+    char message1[22];
+    char message2[22];
+    char message3[22];
+    char message4[22];
+    char message5[22];
+    char message6[22];
+    char message7[22];
+
+    /*
+     *
+                  _      _      _
+               __(.)< __(.)> __(.)=
+               \___)  \___)  \___)  */
+    sprintf(message1,"   _      _      _");
+    sprintf(message2,"__(.)< __(.)< __(.)=");
+    sprintf(message3,"\\___)  \\___)  \\___)");
+    sprintf(message4,"");
+    sprintf(message5,"");
+    sprintf(message6,"");
+    sprintf(message7,"quack");
 
     while(L==0){
-        charCurrent = (int)message[k];
+        charCurrent = (int)message1[k];
         if(charCurrent==0){
             L=1;
         }
         else{
-            drawChar(charCurrent - 0x20,xIndex, yIndex);
+            drawChar(charCurrent - 0x20,xIndex, 3);
             xIndex+=6;
             k+=1;
         }
     }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message2[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 12);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message3[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 21);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message4[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 30);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message5[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 39);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message6[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 48);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+    k=0;
+    L=0;
+    xIndex=x1;
+    while(L==0){
+        charCurrent = (int)message7[k];
+        if(charCurrent==0){
+            L=1;
+        }
+        else{
+            drawChar(charCurrent - 0x20,xIndex, 57);
+            xIndex+=6;
+            k+=1;
+        }
+    }
+
+
+
     display_draw();
 
 
