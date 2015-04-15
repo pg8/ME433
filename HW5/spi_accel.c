@@ -7,7 +7,7 @@
 // SCK1 (B14)       -> SCL
 // some digital pin -> CS
 
-#define CS LATxbits.LATx# // replace x with some digital pin
+#define CS LATAbits.LATA1 // replace x with some digital pin
 
 // send a byte via spi and return the response
 unsigned char spi_io(unsigned char o) {
@@ -45,15 +45,14 @@ void acc_write_register(unsigned char reg, unsigned char data) {
 
 
 void acc_setup() {
-  TRISxbits.TRISx# = 0; // set CS to output and digital if necessary
+  TRISAbits.TRISA1 = 0; // set CS to output and digital if necessary
   CS = 1;
 
   // select a pin for SDI1
-  SDI1Rbits.SDI1R = 0bxxxx;
+  SDI1Rbits.SDI1R = 0b0001;
 
   // select a pin for SD01
-  RPx#Rbits.RPx#R = 0bxxxx;
-
+  RPB2Rbits.RPB2R = 0b0011;
   // Setup the master Master - SPI1
   // we manually control SS as a digital output 
   // since the pic is just starting, we know that spi is off. We rely on defaults here
