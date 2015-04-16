@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=pic_code.c ../I2C/i2c_display.c ../I2C/i2c_master_int.c
+SOURCEFILES_QUOTED_IF_SPACED=spi_accel.c pic_code.c ../I2C/i2c_display.c ../I2C/i2c_master_int.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/pic_code.o ${OBJECTDIR}/_ext/1360894859/i2c_display.o ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/pic_code.o.d ${OBJECTDIR}/_ext/1360894859/i2c_display.o.d ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/spi_accel.o ${OBJECTDIR}/pic_code.o ${OBJECTDIR}/_ext/1360894859/i2c_display.o ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/spi_accel.o.d ${OBJECTDIR}/pic_code.o.d ${OBJECTDIR}/_ext/1360894859/i2c_display.o.d ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/pic_code.o ${OBJECTDIR}/_ext/1360894859/i2c_display.o ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o
+OBJECTFILES=${OBJECTDIR}/spi_accel.o ${OBJECTDIR}/pic_code.o ${OBJECTDIR}/_ext/1360894859/i2c_display.o ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o
 
 # Source Files
-SOURCEFILES=pic_code.c ../I2C/i2c_display.c ../I2C/i2c_master_int.c
+SOURCEFILES=spi_accel.c pic_code.c ../I2C/i2c_display.c ../I2C/i2c_master_int.c
 
 
 CFLAGS=
@@ -94,6 +94,12 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/spi_accel.o: spi_accel.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/spi_accel.o.d 
+	@${RM} ${OBJECTDIR}/spi_accel.o 
+	@${FIXDEPS} "${OBJECTDIR}/spi_accel.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_accel.o.d" -o ${OBJECTDIR}/spi_accel.o spi_accel.c   
+	
 ${OBJECTDIR}/pic_code.o: pic_code.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pic_code.o.d 
@@ -113,6 +119,12 @@ ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o: ../I2C/i2c_master_int.c  nbprojec
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360894859/i2c_master_int.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1360894859/i2c_master_int.o.d" -o ${OBJECTDIR}/_ext/1360894859/i2c_master_int.o ../I2C/i2c_master_int.c   
 	
 else
+${OBJECTDIR}/spi_accel.o: spi_accel.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/spi_accel.o.d 
+	@${RM} ${OBJECTDIR}/spi_accel.o 
+	@${FIXDEPS} "${OBJECTDIR}/spi_accel.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/spi_accel.o.d" -o ${OBJECTDIR}/spi_accel.o spi_accel.c   
+	
 ${OBJECTDIR}/pic_code.o: pic_code.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pic_code.o.d 

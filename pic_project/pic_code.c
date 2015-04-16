@@ -166,9 +166,7 @@ OC1CONbits.ON = 1; // turn on OC1
 ANSELBbits.ANSB13 = 0; // 0 for digital, 1 for analog
 
     // set up LED1 pin as a digital output
-ANSELBbits.ANSB15 = 0; // 0 for digital, 1 for analog
 
-TRISBbits.TRISB15 = 0;
 
     // set up LED2 as OC1 using Timer2 at 1kHz
 RPB7Rbits.RPB7R = 0b0101; // set B15 to OC1
@@ -192,7 +190,15 @@ RPB7Rbits.RPB7R = 0b0101; // set B15 to OC1
     drawChar(73-0x20,50,50);
     display_draw();
 */
+    ANSELBbits.ANSB15 = 0; // 0 for digital, 1 for analog
 
+TRISBbits.TRISB15 = 0;
+    _CP0_SET_COUNT(0);
+    while(_CP0_GET_COUNT()<2000000){
+
+    }
+
+LATBbits.LATB15 = 1;
 
     /////// Write to LCD
     display_init();
@@ -215,13 +221,13 @@ RPB7Rbits.RPB7R = 0b0101; // set B15 to OC1
                   _      _      _
                __(.)< __(.)> __(.)=
                \___)  \___)  \___)  */
-    sprintf(message1,"   _      _      _");
-    sprintf(message2,"__(.)< __(.)< __(.)=");
-    sprintf(message3,"\\___)  \\___)  \\___)");
+    sprintf(message1,"");
+    sprintf(message2,"come o ok if brah");
+    sprintf(message3,"");
     sprintf(message4,"");
     sprintf(message5,"");
     sprintf(message6,"");
-    sprintf(message7,"quack");
+    sprintf(message7,"           ayyy lmao");
 
     while(L==0){
         charCurrent = (int)message1[k];

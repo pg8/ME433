@@ -7,7 +7,7 @@
 // SCK1 (B14)       -> SCL
 // some digital pin -> CS
 
-#define CS LATAbits.LATA1 // replace x with some digital pin
+#define CS LATBbits.LATB3 // replace x with some digital pin
 
 // send a byte via spi and return the response
 unsigned char spi_io(unsigned char o) {
@@ -45,7 +45,8 @@ void acc_write_register(unsigned char reg, unsigned char data) {
 
 
 void acc_setup() {
-  TRISAbits.TRISA1 = 0; // set CS to output and digital if necessary
+  TRISBbits.TRISB3 = 0; // set CS to output and digital if necessary
+  ANSELBbits.ANSB3 = 0;
   CS = 1;
 
   // select a pin for SDI1
@@ -74,6 +75,9 @@ void acc_setup() {
   acc_write_register(CTRL5, 0xF0); 
 
   // enable continuous reading of the magnetometer
-  acc_write_register(CTRL7, 0x0); 
+  acc_write_register(CTRL7, 0x0);
+
+  // set the accelerometer sensitivity to +-2g
+  acc_write_register(0x21, 0x0);
 }
 
