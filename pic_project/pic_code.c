@@ -219,15 +219,15 @@ LATBbits.LATB15 = 1;
     /*
      *
                   _      _      _
-               __(.)< __(.)> __(.)=
+               __(.)< __(.)< __(.)=
                \___)  \___)  \___)  */
-    sprintf(message1,"");
-    sprintf(message2,"come o ok if brah");
-    sprintf(message3,"");
+    sprintf(message1,"   _      _      _");
+    sprintf(message2,"__(.)< __(.)< __(.)=");
+    sprintf(message3,"\\___)  \\___)  \\___)");
     sprintf(message4,"");
     sprintf(message5,"");
     sprintf(message6,"");
-    sprintf(message7,"           ayyy lmao");
+    sprintf(message7,"                quack");
 
     while(L==0){
         charCurrent = (int)message1[k];
